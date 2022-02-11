@@ -6,6 +6,7 @@ class EventSearchForm
   attribute :page, :integer
 
   def search
+    Event.reindex
     Event.search(
       keyword_for_search,
       where: { start_at: { gte: start_at } },
